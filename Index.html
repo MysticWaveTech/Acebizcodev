@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Entangler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #compliance {
+            margin-top: 20px;
+        }
+
+        #mediaWrapper {
+            display: none; /* Initially hidden */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #mediaWrapper img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        audio {
+            display: block; /* Display audio controls */
+            margin-top: 10px;
+        }
+
+        #complianceText {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Particle Entangler</h1>
+
+        <label for="targetParticle">Target Particle:</label>
+        <input type="text" id="targetParticle" placeholder="e.g. Mr. H. Macs tablecloth, Sydney">
+
+        <label for="particleType">Enter Particle Type:</label>
+        <input type="text" id="particleType" placeholder="e.g., Electron">
+
+        <fieldset>
+            <legend>Entangle Particle:</legend>
+            <label>
+                <input type="radio" name="entangle" value="yes" id="entangleYes">
+                Yes
+            </label>
+            <label>
+                <input type="radio" name="entangle" value="no" id="entangleNo">
+                No
+            </label>
+        </fieldset>
+
+        <label for="energyDesc">Energy Description:</label>
+        <input type="text" id="energyDesc" placeholder="e.g., Positive Vibes">
+
+        <div id="compliance">
+            <input type="checkbox" id="complianceCheck">
+            <label for="complianceCheck">
+                I confirm that I have ensured compliance with laws applicable to where the particle will be located.
+            </label>
+        </div>
+
+        <button id="broadcastBtn">Broadcast Energy</button>
+
+        <!-- Media Wrapper -->
+        <div id="mediaWrapper">
+            <img id="animatedGif" src="https://raw.githubusercontent.com/MysticWaveTech/liveforever/main/7529-201118756_-1721415545905.gif" alt="Animation GIF">
+            <audio id="audioPlayer" controls preload="auto">
+                <source src="https://github.com/MysticWaveTech/liveforever/raw/main/New%20Composition%20%206.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div id="complianceText">
+            Compliance Notice: The audio and image will not play unless you have confirmed compliance with all applicable laws where the particle will be located.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const broadcastBtn = document.getElementById('broadcastBtn');
+            const complianceCheck = document.getElementById('complianceCheck');
+            const mediaWrapper = document.getElementById('mediaWrapper');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const complianceText = document.getElementById('complianceText');
+
+            broadcastBtn.addEventListener('click', function() {
+                if (complianceCheck.checked) {
+                    showMedia();
+                } else {
+                    alert("Have all laws been obeyed? Please check the compliance box.");
+                }
+            });
+
+            complianceCheck.addEventListener('change', function() {
+                broadcastBtn.disabled = !complianceCheck.checked;
+            });
+
+            function showMedia() {
+                mediaWrapper.style.display = 'block'; // Show media
+                complianceText.style.display = 'none'; // Hide compliance text when showing media
+                audioPlayer.play().catch(error => {
+                    console.error('Error playing audio:', error);
+                }); // Play audio and catch any errors
+            }
+        });
+    </script>
+</body>
+</html>
